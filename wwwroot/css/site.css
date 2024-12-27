@@ -1,0 +1,32 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #89a5c7;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.custom-btn-pink {
+  background-color: #ac8eb7; /* Mavi renk */
+  border-color: #ac8eb7e8;    /* Sınır rengini de mavi yapalım */
+}
+
+.custom-btn-blue:hover {
+  background-color: #9880a1; /* Hover durumunda daha koyu bir mavi */
+  border-color: #8e7697;
+}

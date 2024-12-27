@@ -1,0 +1,89 @@
+@model Blog.Models.ProfilGuncelleme
+@{
+    ViewBag.Title = "Profil";
+}
+
+<div class="container">
+    <link href="~/css/site.css" rel="stylesheet" />
+    <br />
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/Home/Index">Anasayfa</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Profil Güncelleme</li>
+            </ol>
+        </nav>
+
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-10 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-5">
+                                <h3 class="text-center mb-4">Bilgilerini Güncelle</h3>
+
+                                @using (Html.BeginForm("Profil", "Account", FormMethod.Post, new { @class = "row" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.HiddenFor(model => model.Id)
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="formName">Adı</label>
+                                        @Html.EditorFor(m => m.Name, new
+                                            {
+                                                htmlAttributes = new { @class = "form-control" }
+                                            })
+                                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="formSurname">Soyadı</label>
+                                        @Html.EditorFor(m => m.Surname, new
+                                            {
+                                                htmlAttributes = new
+                                                {
+                                                    @class = "form-control"
+                                                }
+                                            })
+                                        @Html.ValidationMessageFor(m => m.Surname, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="formUsername">Kullanıcı Adı</label>
+                                        @Html.EditorFor(m => m.UserName, new
+                                            {
+                                                htmlAttributes = new
+                                                {
+                                                    @class =
+                                                 "form-control"
+                                                }
+                                            })
+                                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="formEmail">Email</label>
+                                        @Html.EditorFor(m => m.Email, new
+                                            {
+                                                htmlAttributes = new { @class = "form-control" }
+                                            })
+                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="submit"
+                                            class="btn custom-btn-pink btn-block btn-lg gradient-custom-4 text-body">
+                                            <i class="bi bi-pencil"></i> Güncelle
+                                        </button>
+                                    </div>
+
+                                    <div class="d-flex justify-content-center mt-3"> <a href="/Account/SifreDegistir"
+                                            class="fw-bold text-body">Şifre Değiştir</a>
+                                    </div>
+                                }
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

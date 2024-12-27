@@ -1,0 +1,17 @@
+@model Blog.Models.Kategori
+
+<div class="container" style="max-width: 600px; margin: 0 auto; padding: 20px;">
+    <h2 class="text-center mb-4">@ViewData["Title"]</h2>
+
+    <form asp-action="@ViewData["Action"]">
+        <input type="hidden" asp-for="Id" />
+        
+        <div class="mb-3">
+            <label asp-for="KategoriAd" class="form-label">Kategori Adı:</label>
+            <input asp-for="KategoriAd" class="form-control" />
+            <span asp-validation-for="KategoriAd" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Kaydet</button>
+    </form>
+</div>

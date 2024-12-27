@@ -1,0 +1,29 @@
+@model IEnumerable<Blog.Models.Kategori>
+
+<div class="container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
+    <link href="~/css/site.css" rel="stylesheet" />
+    <h2 class="text-center mb-4">Kategori Listesi</h2>
+    <a href="/Kategori/Add" class="btn custom-btn-pink btn-block btn-lg gradient-custom-4 text-body">Yeni Kategori
+        Ekle</a>
+    <h1> </h1>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Kategori Adı</th>
+                <th>Aksiyonlar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var kategori in Model)
+            {
+                <tr>
+                    <td>@kategori.KategoriAd</td>
+                    <td>
+                        <a href="/Kategori/Edit/@kategori.Id" class="btn btn-primary btn-sm">Düzenle</a>
+                        <a href="/Kategori/Delete/@kategori.Id" class="btn btn-danger btn-sm">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,47 @@
+﻿@{
+    var makale = ViewBag.makale as Blog.Models.Makale; // ViewBag'den makaleyi al
+}
+
+<div class="container">
+      <br />
+      <div class="row">
+        <div class="col-md-4">
+          <!--Kategori listesi-->
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active" style="background-color:#789DBC; color: black;" aria-current="true">
+              Tüm Kategoriler
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">Kategori A</a>
+            <a href="#" class="list-group-item list-group-item-action">Kategori B</a>
+            <a href="#" class="list-group-item list-group-item-action">Kategori C</a>
+          </div>
+          <br />
+          <h6 style="color: 789DBC;">En Çok Okunan Yazılar</h6>
+          <div class="card mb-3" style="max-width: 355;">
+            <div class="row g-0">
+              <div class="col-md-8">
+                <div class="card-body">
+                  <p class="card-text">Başlık</p>
+                  
+                </div>
+              </div>
+              <div class="card-footer">
+                <p class="card-text"><small class="text-muted" style="font-size: 15px;"><i class="bi bi-clock" style="font-size: 15px;"></i>Tarih...<i class="bi bi-eye" style="font-size: 15px;"></i>10 Görüntülenme</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <!--Makale listesi-->
+          <div class="card-group">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">@makale.Baslik</h5>
+                <p class="card-text">@makale.Aciklama</p>
+            </div>
+            </div>         
+          </div>
+        </div>
+      </div>
+    </div>
+
