@@ -1,0 +1,25 @@
+@model Blog.Models.Kategori
+
+@{
+    ViewData["Title"] = "Kategori Sil";
+}
+
+<div class="container" style="max-width: 600px; margin: 0 auto; padding: 20px;">
+    <h2 class="text-center mb-4">@ViewData["Title"]</h2>
+
+    <!-- Metni Ortada Göster -->
+    <div class="d-flex justify-content-center mb-4">
+        <p class="text-center">Bu kategoriyi silmek istediğinizden emin misiniz?</p>
+    </div>
+    
+    <div class="d-flex justify-content-center gap-2"> <!-- Butonları yan yana yerleştir -->
+        <!-- Silme işlemi için form -->
+        <form asp-action="DeleteConfirmed" method="post">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button type="submit" class="btn btn-danger">Evet, Sil</button>
+        </form>
+
+        <!-- Geri dönmek için buton -->
+        <a href="@Url.Action("Index")" class="btn btn-secondary">Hayır, Geri Dön</a>
+    </div>
+</div>
