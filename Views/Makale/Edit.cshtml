@@ -1,0 +1,54 @@
+@model Blog.Models.Makale
+
+<div class="container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
+    <link href="~/css/site.css" rel="stylesheet" />
+    <h4 class="text-center mb-4">Makale Düzenle</h4>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Makale/Index">Makale</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Makale Düzenle</li>
+        </ol>
+    </nav>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label asp-for="Baslik" class="form-label">Başlık</label>
+            <input asp-for="Baslik" class="form-control" />
+            <span asp-validation-for="Baslik" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Aciklama" class="form-label">Açıklama</label>
+            <textarea asp-for="Aciklama" class="form-control"></textarea>
+            <span asp-validation-for="Aciklama" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="KategoriId" class="form-label">Kategori</label>
+            <select asp-for="KategoriId" class="form-control" asp-items="ViewBag.Kategoriler"></select>
+            <span asp-validation-for="KategoriId" class="text-danger"></span>
+        </div>
+        @if (this.User.IsInRole("admin"))
+        {
+            <div class="form-group">
+                <label asp-for="Onay" class="form-label">Onay</label>
+                <input asp-for="Onay" class="form-check-input" type="checkbox" />
+                <span asp-validation-for="Onay" class="text-danger"></span>
+            </div>
+        }
+        else
+        {
+            <div class="form-group" style="display: none;">
+                <label asp-for="Onay" class="form-label">Onay</label>
+                <input asp-for="Onay" class="form-check-input" type="checkbox" />
+                <span asp-validation-for="Onay" class="text-danger"></span>
+            </div>
+        }
+        <div class="form-group">
+            <label asp-for="KullaniciAd" class="form-label">Kullanıcı Adı</label>
+            <input asp-for="KullaniciAd" class="form-control" value="@User.Identity.Name" readonly />
+            <span asp-validation-for="KullaniciAd" class="text-danger"></span>
+        </div>
+        <br />
+        <button type="submit" class="btn custom-btn-pink btn-block btn-lg gradient-custom-4 text-body">Kaydet</button>
+    </form>
+</div>

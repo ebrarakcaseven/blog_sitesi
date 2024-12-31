@@ -1,0 +1,14 @@
+@model Blog.Models.Makale
+
+<div class="container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
+    <h4 class="text-center mb-4">Makale Silme</h4>
+
+    <h5>Makale: @Model.Baslik</h5>
+    <p>Bu makaleyi silmek istediğinizden emin misiniz?</p>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Evet, Sil</button>
+        <a href="/Makale/Index" class="btn btn-secondary">Hayır, Geri Dön</a>
+    </form>
+</div>

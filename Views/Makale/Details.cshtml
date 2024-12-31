@@ -1,0 +1,14 @@
+@model Blog.Models.Makale
+
+
+<div class="container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
+    <link href="~/css/site.css" rel="stylesheet" />
+    <h4 class="text-center mb-4">@Model.Baslik</h4>
+
+    <p>@Model.Aciklama</p>
+    <p><strong>Kategori:</strong> @Model.Kategori.KategoriAd</p>
+    <p><strong>Yayın Tarihi:</strong> @Model.YayinTarih.ToShortDateString()</p>
+    <p><strong>Görüntülenme:</strong> @Model.Goruntulenme</p>
+    <a href="/Makale/Index" class="btn custom-btn-pink btn-block btn-lg gradient-custom-4 text-body">Geri Dön</a>
+</div>
+

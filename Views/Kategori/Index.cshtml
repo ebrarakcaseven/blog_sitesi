@@ -7,23 +7,24 @@
         Ekle</a>
     <h1> </h1>
     <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
+    <thead class="thead-dark">
+        <tr>
+            <th>Kategori Adı</th>
+            <th>Aksiyonlar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var kategori in Model)
+        {
             <tr>
-                <th>Kategori Adı</th>
-                <th>Aksiyonlar</th>
+                <td>@kategori.KategoriAd</td>
+                <td>
+                    <a href="/Kategori/Edit/@kategori.Id" class="btn btn-border btn-sm d-inline-block me-2">Düzenle</a>
+                    <a href="/Kategori/Delete/@kategori.Id" class="btn btn-border btn-sm d-inline-block">Sil</a>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var kategori in Model)
-            {
-                <tr>
-                    <td>@kategori.KategoriAd</td>
-                    <td>
-                        <a href="/Kategori/Edit/@kategori.Id" class="btn btn-primary btn-sm">Düzenle</a>
-                        <a href="/Kategori/Delete/@kategori.Id" class="btn btn-danger btn-sm">Sil</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
+
 </div>

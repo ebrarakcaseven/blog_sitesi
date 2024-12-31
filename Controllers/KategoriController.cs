@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Blog.Models; // Kategori modelini içeren namespace
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace Blog.Controllers
@@ -27,33 +28,35 @@ namespace Blog.Controllers
             return View();
         }
 
+        // Yeni Kategori Ekleme (POST)
         [HttpPost]
-public IActionResult Add(Kategori kategori)
-{
-    if (ModelState.IsValid)
-    {
-        try
+        public IActionResult Add(Kategori kategori)
         {
-            _db.Kategoris.Add(kategori);
-            _db.SaveChanges();
-
-            // Debug mesajı yazdır
-            Debug.WriteLine("Kategori başarıyla eklendi!");
-
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _db.Kategoris.Add(kategori);
+                    _db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    // Hata mesajını loglayalım
+                    Console.WriteLine($"Hata: {ex.Message}");
+                    ModelState.AddModelError(string.Empty, "Kategori eklenirken bir hata oluştu.");
+                }
+            }
+            else
+            {
+                // ModelState hatalarını logla
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine($"ModelState Error: {error.ErrorMessage}");
+                }
+            }
+            return View(kategori);
         }
-        catch (Exception ex)
-        {
-            // Hata mesajı yazdır
-            Debug.WriteLine($"Hata oluştu: {ex.Message}");
-
-            // Hata mesajını modelstate'e ekle
-            ModelState.AddModelError(string.Empty, "Kategori eklenirken bir hata oluştu.");
-        }
-    }
-
-    return View(kategori);
-}
 
 
         // Kategori düzenleme GET
@@ -70,34 +73,24 @@ public IActionResult Add(Kategori kategori)
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _db.Kategoris.Update(kategori);
-                    _db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Hata oluştu: {ex.Message}");
-                    ModelState.AddModelError(string.Empty, "Kategori güncellenirken bir hata oluştu.");
-                }
+                _db.Kategoris.Update(kategori);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
             }
             return View(kategori);
         }
 
-        // Silme işlemi için GET aksiyonu
-        [HttpGet]
+        // Kategori silme GET
         public IActionResult Delete(int id)
         {
             var kategori = _db.Kategoris.Find(id);
             if (kategori == null) return NotFound();
-
             return View(kategori); // Silme onay sayfasını göster
         }
 
-        // Silme işlemi için POST aksiyonu
+        // Kategori silme POST
         [HttpPost]
-        public IActionResult DeleteConfirmed(int id) // POST aksiyonu burada id'yi alır
+        public IActionResult DeleteConfirmed(int id)
         {
             var kategori = _db.Kategoris.Find(id);
             if (kategori == null) return NotFound();

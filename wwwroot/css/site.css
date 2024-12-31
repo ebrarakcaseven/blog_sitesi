@@ -22,11 +22,54 @@ body {
 }
 
 .custom-btn-pink {
-  background-color: #ac8eb7; /* Mavi renk */
-  border-color: #ac8eb7e8;    /* Sınır rengini de mavi yapalım */
+  background-color: #ac8eb7d1; 
+  border-color: #ac8eb7f5;  
 }
 
-.custom-btn-blue:hover {
-  background-color: #9880a1; /* Hover durumunda daha koyu bir mavi */
-  border-color: #8e7697;
+.custom-btn-pink:hover {
+  background-color: #9880a1d0; 
+  border-color: #9880a1d0;
+}
+
+/* Butonların arka plan rengini kaldır, sadece çerçeve olsun */
+.btn-border {
+  background-color: transparent; /* Arka planı kaldır */
+  border: 1px solid #d0a5ed; 
+  color: #c391e4; 
+  width: auto; /* Otomatik genişlik, içeriğe göre ayarlanır */
+    max-width: 100px; /* Maksimum genişlik belirleyin, örneğin 100px */
+    margin-bottom: 5px;
+}
+
+/* Butonun üzerine gelindiğinde renk değişmemesi için */
+.btn-border:hover {
+  background-color: transparent; /* Arka planı şeffaf tut */
+  border-color: #8d6ea1; 
+  color: #8d6ea1; 
+}
+
+/* Butonun aktif durumda rengini sabit tut */
+.btn-border:active {
+  background-color: transparent;
+  border-color: #8d6ea1;
+  color: #8d6ea1;
+}
+
+/* Butonun aktif olmayan durumunda da görsel değişiklik olmaması */
+.btn-border:focus {
+  outline: none; /* Fokus işareti kaldır */
+  box-shadow: none; /* Fokus sonrası kutu gölgesini kaldır */
+}
+
+/* Butonlara alt marjin ekleyerek aralarına mesafe ver */
+.btn-border {
+  margin-bottom: 5px; /* Butonlar arasına 10px mesafe ekler */
+}
+
+.custom-brand {
+  font-family: 'Arial', sans-serif;  /* Yazı tipi */
+  font-size: 24px;  /* Yazı boyutu */
+  color: #4a524a;  /* Yazı rengi */
+  font-weight: bold;  /* Yazı kalınlığı */ 
+  letter-spacing: 1px;  /* Harfler arası boşluk */
 }
