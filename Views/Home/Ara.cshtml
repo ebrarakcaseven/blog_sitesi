@@ -1,0 +1,116 @@
+@model IEnumerable<Blog.Models.Makale>
+@{
+    ViewBag.Title = "Ara";
+}
+
+<div class="container">
+    <link href="~/css/site.css" rel="stylesheet" />
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            <!--Kategori listesi-->
+            <h6 style="color: 789DBC;">Kategoriler</h6>
+            @if (ViewBag.Kategoriler == null || !((List<Blog.Models.Kategori>)ViewBag.Kategoriler).Any())
+            {
+                <p>Kategori bulunamadı.</p>
+            }
+            else
+            {
+                <!-- Başlangıçta gösterilecek 4 kategori -->
+                <ul class="list-group" id="kategoriListesi">
+                    @foreach (var kategori in (ViewBag.Kategoriler as List<Blog.Models.Kategori>).Take(4))
+                    {
+                        <li class="list-group-item kategori-item">
+                            <a href="/Home/MakaleListesi/@kategori.Id" style="text-decoration: none; color: inherit;">
+                                @kategori.KategoriAd
+                            </a>
+                        </li>
+                    }
+                </ul>
+
+                <!-- Tüm kategoriler, başlangıçta gizli -->
+                <ul class="list-group" id="tumKategoriler" style="display: none;">
+                    @foreach (var kategori in (ViewBag.Kategoriler as List<Blog.Models.Kategori>).Skip(4))
+                    {
+                        <li class="list-group-item kategori-item">
+                            <a href="/Home/MakaleListesi/@kategori.Id" style="text-decoration: none; color: inherit;">
+                                @kategori.KategoriAd
+                            </a>
+                        </li>
+                    }
+                </ul>
+
+                <!-- Buton: Tüm Kategoriler veya Kategorileri Gizle -->
+                <div class="card-footer">
+                    <button id="tumKategorilerBtn" class="btn btn-link kategori-item"
+                        style="color: inherit; text-decoration: none; width: 100%; border-radius: 0.25rem; padding: 10px 15px; background-color: #f8f9fa;">
+                        Tüm Kategoriler
+                    </button>
+                </div>
+
+            }
+
+            <script>
+                // Butonun click event listener'ı
+                document.getElementById("tumKategorilerBtn").addEventListener("click", function () {
+                    const tumKategoriler = document.getElementById("tumKategoriler");
+
+                    // Eğer tüm kategoriler gizliyse, göster ve buton metnini değiştir
+                    if (tumKategoriler.style.display === "none") {
+                        tumKategoriler.style.display = "block";
+                        this.innerText = "Kategorileri Gizle";
+                    }
+                    // Eğer tüm kategoriler görünürse, gizle ve buton metnini eski haline getir
+                    else {
+                        tumKategoriler.style.display = "none";
+                        this.innerText = "Tüm Kategoriler";
+                    }
+                });
+            </script>
+            <br />
+        </div>
+        <div class="col-md-8">
+            <!--Makale listesi-->
+            @if (!Model.Any())
+            {
+                <div class="alert alert-warning" role="alert">
+                    Aradığınız makale bulunamadı
+                </div>
+            }
+            else
+            {
+                @foreach (var item in Model)
+                {
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Baslik</h5>
+                                @if (item.Aciklama.Length > 60)
+                                {
+                                    <p class="card-text">@item.Aciklama.Substring(0, 60):(...)</p>
+                                }
+                                else
+                                {
+                                    <p class="card-text">@item.Aciklama</p>
+                                }
+                                <a href="/Home/Detay/@item.Id"
+                                    class="btn custom-btn-pink btn-block btn-lg gradient-custom-4 text-body"
+                                    style="font-size: 14px; border-radius: 10px; padding: 12px 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">Devamını Oku...</a>
+                            </div>
+                            <div class="card-footer">
+                                <p class="card-text"><small class="text-muted" style="font-size: 15px;">
+                                        <i class="bi bi-clock"
+                                            style="font-size: 15px;"></i>@item.YayinTarih.ToString("dd-MM-yyy")
+                                        <i class="bi bi-eye" style="font-size: 15px;"></i>@item.Goruntulenme Görüntülenme
+                                        <i class="bi bi-chat-heart"></i>@(item.Yorums?.Count ?? 0) yorum
+                                    </small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                }
+            }
+        </div>
+    </div>
+</div>

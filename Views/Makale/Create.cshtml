@@ -1,6 +1,7 @@
 @model Blog.Models.Makale
 
 <div class="container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
+    <link href="~/css/site.css" rel="stylesheet" />
     <h4 class="text-center mb-4">Yeni Makale Ekle</h4>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -54,7 +55,9 @@
             <input asp-for="YayinTarih" class="form-control" type="date" />
             <span asp-validation-for="YayinTarih" class="text-danger"></span>
         </div>
-        <button type="submit" class="btn btn-primary">Kaydet</button>
+        <br />
+        <button type="submit"  class="btn custom-btn-pink btn-block btn-lg gradient-custom-4 text-body"
+         style="font-size: 14px; border-radius: 10px; padding: 12px 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">Kaydet</button>
     </form>
 
 </div>

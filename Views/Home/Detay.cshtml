@@ -1,47 +1,148 @@
-﻿@{
+﻿@using Blog.Models
+@model Blog.Models.Yorum
+@{
+    ViewBag.Title = "Detay";
+}
+
+@{
     var makale = ViewBag.makale as Blog.Models.Makale; // ViewBag'den makaleyi al
+    var kategoriler = ViewBag.Kategoriler as List<Blog.Models.Kategori>;
+    var yorumlar = ViewBag.Yorumlar as List<Blog.Models.Yorum>; // Yorumları al
 }
 
 <div class="container">
-      <br />
-      <div class="row">
+    <link href="~/css/site.css" rel="stylesheet" />
+    <br />
+    <div class="row">
         <div class="col-md-4">
-          <!--Kategori listesi-->
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action active" style="background-color:#789DBC; color: black;" aria-current="true">
-              Tüm Kategoriler
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">Kategori A</a>
-            <a href="#" class="list-group-item list-group-item-action">Kategori B</a>
-            <a href="#" class="list-group-item list-group-item-action">Kategori C</a>
-          </div>
-          <br />
-          <h6 style="color: 789DBC;">En Çok Okunan Yazılar</h6>
-          <div class="card mb-3" style="max-width: 355;">
-            <div class="row g-0">
-              <div class="col-md-8">
-                <div class="card-body">
-                  <p class="card-text">Başlık</p>
-                  
-                </div>
-              </div>
-              <div class="card-footer">
-                <p class="card-text"><small class="text-muted" style="font-size: 15px;"><i class="bi bi-clock" style="font-size: 15px;"></i>Tarih...<i class="bi bi-eye" style="font-size: 15px;"></i>10 Görüntülenme</small></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-8">
-          <!--Makale listesi-->
-          <div class="card-group">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">@makale.Baslik</h5>
-                <p class="card-text">@makale.Aciklama</p>
-            </div>
-            </div>         
-          </div>
-        </div>
-      </div>
-    </div>
+            <!-- Kategori listesi -->
+            <h6 style="color: 789DBC;">Kategoriler</h6>
+            @if (kategoriler == null || !kategoriler.Any())
+            {
+                <p>Kategori bulunamadı.</p>
+            }
+            else
+            {
+                <!-- Başlangıçta gösterilecek 4 kategori -->
+                <ul class="list-group" id="kategoriListesi">
+                    @foreach (var kategori in kategoriler.Take(4))
+                    {
+                        <li class="list-group-item kategori-item">
+                            <a href="/Home/MakaleListesi/@kategori.Id" style="text-decoration: none; color: inherit;">
+                                @kategori.KategoriAd
+                            </a>
+                        </li>
+                    }
+                </ul>
 
+                <!-- Tüm kategoriler, başlangıçta gizli -->
+                <ul class="list-group" id="tumKategoriler" style="display: none;">
+                    @foreach (var kategori in kategoriler.Skip(4))
+                    {
+                        <li class="list-group-item kategori-item">
+                            <a href="/Home/MakaleListesi/@kategori.Id" style="text-decoration: none; color: inherit;">
+                                @kategori.KategoriAd
+                            </a>
+                        </li>
+                    }
+                </ul>
+
+                <!-- Buton: Tüm Kategoriler veya Kategorileri Gizle -->
+                <div class="card-footer">
+                    <button id="tumKategorilerBtn" class="btn btn-link kategori-item"
+                        style="color: inherit; text-decoration: none; width: 100%; border-radius: 0.25rem; padding: 10px 15px; background-color: #f8f9fa;">
+                        Tüm Kategoriler
+                    </button>
+                </div>
+            }
+
+            <script>
+                // Butonun click event listener'ı
+                document.getElementById("tumKategorilerBtn").addEventListener("click", function () {
+                    const tumKategoriler = document.getElementById("tumKategoriler");
+
+                    // Eğer tüm kategoriler gizliyse, göster ve buton metnini değiştir
+                    if (tumKategoriler.style.display === "none") {
+                        tumKategoriler.style.display = "block";
+                        this.innerText = "Kategorileri Gizle";
+                    }
+                    // Eğer tüm kategoriler görünürse, gizle ve buton metnini eski haline getir
+                    else {
+                        tumKategoriler.style.display = "none";
+                        this.innerText = "Tüm Kategoriler";
+                    }
+                });
+            </script>
+            <br />
+        </div>
+
+        <div class="col-md-8">
+            <!-- Makale listesi -->
+            <div class="card-group">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@makale.Baslik</h5>
+                        <p class="card-text">@makale.Aciklama</p>
+                    </div>
+                </div>
+            </div>
+            <br />
+            
+            <!-- Yorum Yapma Formu -->
+            <div class="row" style="background-color: rgba(230, 213, 238, 0.231); border-radius: 10px; padding: 20px;">
+                @if (User.Identity.IsAuthenticated) // Kullanıcı oturum açmışsa
+                {
+                    using (Html.BeginForm("YorumGonder", "Home", FormMethod.Post, new { @class = "row" }))
+                    {
+                        <!-- Yorum Metni Alanı -->
+                        <div class="mb-3">
+                            @Html.TextAreaFor(model => model.YorumMetni, new { @class = "form-control", placeholder = "Yorumunuzu yazın...", style = "border-radius: 10px; padding: 10px; resize: none;" })
+                        </div>
+
+                        <input type="hidden" name="MakaleId" value="@makale.Id" />  <!-- MakaleId'yi gizli alan olarak gönder -->
+
+                        <div class="col-md-3">
+                            <!-- Yorum Yap Butonu -->
+                            <button type="submit" class="btn custom-btn-pink btn-block btn-lg gradient-custom-4 text-body" style="font-size: 14px; border-radius: 10px; padding: 12px 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                Yorum yap
+                            </button>
+                        </div>
+                    }
+                }
+                else
+                {
+                  <div class="alert alert-danger" role="alert">
+                     Yorum yapabilmek için giriş yapmanız gerekiyor.
+                  </div>                   
+                }
+            </div>
+            <br />
+            <!-- Yorumlar -->
+
+            <div class="row" style="background-color: rgba(230, 213, 238, 0.231); border-radius: 10px; padding: 20px;">
+                <h5>Yorumlar:</h5>
+                @if (yorumlar != null && yorumlar.Any())
+                {
+                    @foreach (var yorum in yorumlar)
+                    {
+                        <div class="border-bottom mb-3" style="padding: 10px;">
+                            <div class="font-weight-bold">
+                                @yorum.KullaniciId  <!-- Yorum Yapan Kullanıcı -->
+                            </div>
+                            <div>
+                                @yorum.YorumMetni  <!-- Yorum Metni -->
+                            </div>
+                            <div class="text-muted" style="font-size: 0.9em;">
+                                @yorum.YorumTarihi.ToString("dd MMM yyyy HH:mm")  <!-- Yorum Tarihi -->
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>Bu makale için henüz yorum yapılmamış.</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
