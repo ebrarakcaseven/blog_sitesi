@@ -46,6 +46,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9VcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Admin/OnayListesi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vT25heUxpc3Rlc2kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Admin/OnaysizListesi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vT25heXNpekxpc3Rlc2kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Admin/YazarListesi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vWWF6YXJMaXN0ZXNpLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Home/Ara.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BcmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

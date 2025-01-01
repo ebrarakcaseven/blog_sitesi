@@ -3,10 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Blog.Identity;
 using Blog.Models;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Blog.Controllers
 {
@@ -26,12 +22,12 @@ namespace Blog.Controllers
             _roleManager = roleManager;
         }
 
-        public ActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Register()
+        public IActionResult Register()
         {
             ViewBag.Title = "Kayıt Ol";
             return View();
@@ -57,20 +53,19 @@ namespace Blog.Controllers
                     {
                         await _userManager.AddToRoleAsync(user, "user");
                     }
-
                     return RedirectToAction("Login", "Account");
                 }
-                else
-                {
-                    ModelState.AddModelError("hata", "Kullanıcı oluşturma hatası.");
-                }
-            }
 
+                // Hata mesajı
+                ModelState.AddModelError("", "Kullanıcı oluşturulurken bir hata oluştu.");
+            }
             return View(model);
         }
 
-        public ActionResult Login()
+        [HttpGet]
+        public IActionResult Login()
         {
+            ViewBag.Title = "Giriş Yap";
             return View();
         }
 
@@ -79,17 +74,15 @@ namespace Blog.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(
-                    model.Username,
-                    model.Password,
-                    model.RememberMe,
-                    lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, lockoutOnFailure: false);
 
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "Home");
                 }
-                else if (result.IsLockedOut)
+
+                // Hata durumlarına göre mesaj
+                if (result.IsLockedOut)
                 {
                     ModelState.AddModelError("", "Hesap kilitlendi.");
                 }
@@ -99,15 +92,60 @@ namespace Blog.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Böyle bir kullanıcı bulunamadı.");
+                    ModelState.AddModelError("", "Kullanıcı adı veya şifre hatalı.");
                 }
             }
-
-            // Doğrulama hatalarını görmek için
-            var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
-            foreach (var error in errors)
+            return View(model);
+        }
+        public async Task<IActionResult> Profil()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
             {
-                Console.WriteLine(error); // Gerekirse logla
+                return RedirectToAction("Login");
+            }
+
+            var model = new ProfilGuncelleme
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Surname = user.Surname,
+                UserName = user.UserName,
+                Email = user.Email
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Profil(ProfilGuncelleme model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user == null)
+                {
+                    return RedirectToAction("Login");
+                }
+
+                user.Name = model.Name;
+                user.Surname = model.Surname;
+                user.UserName = model.UserName;
+                user.Email = model.Email;
+
+                var result = await _userManager.UpdateAsync(user);
+                if (result.Succeeded)
+                {
+                    // Success, redirect to a confirmation page or display success message
+                    return RedirectToAction("Profil", "Account");
+                }
+
+                // If something failed, add error to ModelState
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
             }
 
             return View(model);
@@ -118,77 +156,5 @@ namespace Blog.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
-
-        // Profil işlemi
-        public async Task<ActionResult> Profil()
-        {
-            // Kullanıcı ID'sini alıyoruz
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            // Kullanıcıyı UserManager ile buluyoruz
-            var user = await _userManager.FindByIdAsync(userId);
-
-            // Profil bilgilerini ProfilGuncelleme modeline yerleştiriyoruz
-            var data = new ProfilGuncelleme
-            {
-                Id = user.Id,
-                Name = user.Name,
-                Surname = user.Surname,
-                Email = user.Email,
-                UserName = user.UserName
-            };
-            return View(data);
-        }
-
-        [HttpPost]
-        public async Task<ActionResult> Profil(ProfilGuncelleme model)
-        {
-            // Kullanıcıyı UserManager ile buluyoruz
-            var user = await _userManager.FindByIdAsync(model.Id);
-
-            // Kullanıcı bilgilerini güncelliyoruz
-            user.Name = model.Name;
-            user.Surname = model.Surname;
-            user.Email = model.Email;
-            user.UserName = model.UserName;
-
-            // Güncellenmiş kullanıcıyı kaydediyoruz
-            var result = await _userManager.UpdateAsync(user);
-            return View("Update");
-        }
-        public ActionResult SifreDegistir()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [Authorize]
-        public async Task<ActionResult> SifreDegistir(SifreDegistirme model)
-        {
-            if (ModelState.IsValid)
-            {
-                // Kullanıcı ID'sini almak için
-                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-                // Kullanıcıyı buluyoruz
-                var user = await _userManager.FindByIdAsync(userId);
-
-                // Şifre değiştirme işlemini yapıyoruz
-                var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
-
-                if (result.Succeeded)
-                {
-                    return View("Update"); 
-                }
-                else
-                {
-                    // Hata durumunda error mesajı gösteriyoruz
-                    ModelState.AddModelError("", "Şifre değiştirme işlemi başarısız.");
-                }
-            }
-
-            return View(model); // Modeli geri döndürüyoruz
-        }
-
     }
 }
