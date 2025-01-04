@@ -5,7 +5,7 @@
 namespace blogsitesi.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateMakaleModel : Migration
+    public partial class _20241230180844_UpdateOptionalRelationships : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/blogsitesi.csproj": {}
+    "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/blogsitesi.csproj": {}
   },
   "projects": {
-    "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/blogsitesi.csproj": {
+    "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/blogsitesi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/blogsitesi.csproj",
+        "projectUniqueName": "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/blogsitesi.csproj",
         "projectName": "blogsitesi",
-        "projectPath": "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/blogsitesi.csproj",
+        "projectPath": "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/blogsitesi.csproj",
         "packagesPath": "/Users/ebrarakcaseven/.nuget/packages/",
-        "outputPath": "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/obj/",
+        "outputPath": "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ebrarakcaseven/.nuget/NuGet/NuGet.Config"

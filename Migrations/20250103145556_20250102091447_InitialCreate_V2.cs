@@ -5,7 +5,7 @@
 namespace blogsitesi.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateInitialSchema : Migration
+    public partial class _20250102091447_InitialCreate_V2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

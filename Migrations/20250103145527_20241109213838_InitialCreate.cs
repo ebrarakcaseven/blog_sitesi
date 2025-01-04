@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace blogsitesi.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class _20241109213838_InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -57,7 +57,8 @@ namespace blogsitesi.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     YorumMetni = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     YorumTarihi = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    MakaleId = table.Column<int>(type: "int", nullable: false)
+                    KullaniciId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MakaleId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -66,8 +67,7 @@ namespace blogsitesi.Migrations
                         name: "FK_Yorums_Makales_MakaleId",
                         column: x => x.MakaleId,
                         principalTable: "Makales",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(

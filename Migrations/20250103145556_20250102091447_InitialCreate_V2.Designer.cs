@@ -12,15 +12,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace blogsitesi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241109213838_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250103145556_20250102091447_InitialCreate_V2")]
+    partial class _20250102091447_InitialCreate_V2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.10")
+                .HasAnnotation("ProductVersion", "9.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -89,7 +89,11 @@ namespace blogsitesi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("MakaleId")
+                    b.Property<string>("KullaniciId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("MakaleId")
                         .HasColumnType("int");
 
                     b.Property<string>("YorumMetni")
@@ -121,9 +125,7 @@ namespace blogsitesi.Migrations
                 {
                     b.HasOne("Blog.Models.Makale", "Makale")
                         .WithMany("Yorums")
-                        .HasForeignKey("MakaleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MakaleId");
 
                     b.Navigation("Makale");
                 });

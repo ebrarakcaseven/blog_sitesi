@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IC8cRuPmZkg=",
+  "dgSpecHash": "mvwswubg3WI=",
   "success": true,
-  "projectFilePath": "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/blogsitesi.csproj",
+  "projectFilePath": "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/blogsitesi.csproj",
   "expectedPackageFiles": [
     "/Users/ebrarakcaseven/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/Users/ebrarakcaseven/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",

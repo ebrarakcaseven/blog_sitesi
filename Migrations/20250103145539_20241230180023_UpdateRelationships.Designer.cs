@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace blogsitesi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241230180844_UpdateOptionalRelationships")]
-    partial class UpdateOptionalRelationships
+    [Migration("20250103145539_20241230180023_UpdateRelationships")]
+    partial class _20241230180023_UpdateRelationships
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -88,6 +88,10 @@ namespace blogsitesi.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("KullaniciId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("MakaleId")
                         .HasColumnType("int");

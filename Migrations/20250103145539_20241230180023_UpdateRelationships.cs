@@ -5,7 +5,7 @@
 namespace blogsitesi.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateData : Migration
+    public partial class _20241230180023_UpdateRelationships : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

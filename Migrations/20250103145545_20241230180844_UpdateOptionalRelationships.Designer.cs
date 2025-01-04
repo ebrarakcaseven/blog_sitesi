@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace blogsitesi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241227202621_CreateInitialSchema")]
-    partial class CreateInitialSchema
+    [Migration("20250103145545_20241230180844_UpdateOptionalRelationships")]
+    partial class _20241230180844_UpdateOptionalRelationships
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -89,7 +89,11 @@ namespace blogsitesi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("MakaleId")
+                    b.Property<string>("KullaniciId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("MakaleId")
                         .HasColumnType("int");
 
                     b.Property<string>("YorumMetni")
@@ -121,9 +125,7 @@ namespace blogsitesi.Migrations
                 {
                     b.HasOne("Blog.Models.Makale", "Makale")
                         .WithMany("Yorums")
-                        .HasForeignKey("MakaleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MakaleId");
 
                     b.Navigation("Makale");
                 });

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace blogsitesi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241230180023_UpdateRelationships")]
-    partial class UpdateRelationships
+    [Migration("20250103145534_20241227202621_CreatelnitialSchema")]
+    partial class _20241227202621_CreatelnitialSchema
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -89,7 +89,11 @@ namespace blogsitesi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("MakaleId")
+                    b.Property<string>("KullaniciId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("MakaleId")
                         .HasColumnType("int");
 
                     b.Property<string>("YorumMetni")
@@ -112,7 +116,7 @@ namespace blogsitesi.Migrations
                         .WithMany("Makaleler")
                         .HasForeignKey("KategoriId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired(false);
+                        .IsRequired();
 
                     b.Navigation("Kategori");
                 });
@@ -121,9 +125,7 @@ namespace blogsitesi.Migrations
                 {
                     b.HasOne("Blog.Models.Makale", "Makale")
                         .WithMany("Yorums")
-                        .HasForeignKey("MakaleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired(false);
+                        .HasForeignKey("MakaleId");
 
                     b.Navigation("Makale");
                 });

@@ -2,10 +2,10 @@
 
 #nullable disable
 
-namespace blogsitesi.Migrations.IdentityData
+namespace blogsitesi.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateIdentitySchema : Migration
+    public partial class _20241230193634_UpdateMakaleModel : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

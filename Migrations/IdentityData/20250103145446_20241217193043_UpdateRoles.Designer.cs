@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace blogsitesi.Migrations.IdentityData
 {
     [DbContext(typeof(IdentityDataContext))]
-    [Migration("20241225190801_UpdateIdentitySchema")]
-    partial class UpdateIdentitySchema
+    [Migration("20250103145446_20241217193043_UpdateRoles")]
+    partial class _20241217193043_UpdateRoles
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
