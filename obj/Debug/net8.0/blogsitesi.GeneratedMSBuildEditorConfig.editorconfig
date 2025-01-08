@@ -17,135 +17,135 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = blogsitesi
 build_property.RootNamespace = blogsitesi
-build_property.ProjectDir = /Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/
+build_property.ProjectDir = /Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2
+build_property.MSBuildProjectDirectory = /Users/ebrarakcaseven/Documents/GitHub/blog_sitesi
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Account/Login.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Account/Profil.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Account/Profil.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Qcm9maWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Account/Register.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Account/SifreDegistir.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Account/SifreDegistir.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9TaWZyZURlZ2lzdGlyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Account/Update.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Account/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9VcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Admin/Index.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Admin/OnayListesi.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Admin/OnayListesi.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vT25heUxpc3Rlc2kuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Admin/OnaysizListesi.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Admin/OnaysizListesi.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vT25heXNpekxpc3Rlc2kuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Admin/YazarListesi.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Admin/YazarListesi.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vWWF6YXJMaXN0ZXNpLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Home/Ara.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Home/Ara.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BcmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Home/Detay.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Home/Detay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9EZXRheS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Home/Index.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Home/MakaleListesi.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Home/MakaleListesi.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9NYWthbGVMaXN0ZXNpLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Kategori/Add.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Kategori/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2F0ZWdvcmkvQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Kategori/Delete.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Kategori/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2F0ZWdvcmkvRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Kategori/Edit.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Kategori/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2F0ZWdvcmkvRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Kategori/Index.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Kategori/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2F0ZWdvcmkvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Kategori/KategoriListesi.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Kategori/KategoriListesi.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2F0ZWdvcmkvS2F0ZWdvcmlMaXN0ZXNpLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Makale/Create.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Makale/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFrYWxlL0NyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Makale/Delete.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Makale/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFrYWxlL0RlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Makale/Details.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Makale/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFrYWxlL0RldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Makale/Edit.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Makale/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFrYWxlL0VkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Makale/Index.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Makale/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFrYWxlL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Makale/Onay.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Makale/Onay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFrYWxlL09uYXkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Shared/Arama.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Shared/Arama.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0FyYW1hLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Shared/Error.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Shared/LoginPartial.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Shared/LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0xvZ2luUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Shared/_ValidationScriptsPartial.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/_ViewImports.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/_ViewStart.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/Views/Shared/_Layout.cshtml]
+[/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ad155wo3tq

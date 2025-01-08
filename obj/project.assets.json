@@ -6109,11 +6109,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/blogsitesi.csproj",
+      "projectUniqueName": "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/blogsitesi.csproj",
       "projectName": "blogsitesi",
-      "projectPath": "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/blogsitesi.csproj",
+      "projectPath": "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/blogsitesi.csproj",
       "packagesPath": "/Users/ebrarakcaseven/.nuget/packages/",
-      "outputPath": "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi 2/obj/",
+      "outputPath": "/Users/ebrarakcaseven/Documents/GitHub/blog_sitesi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/ebrarakcaseven/.nuget/NuGet/NuGet.Config"
